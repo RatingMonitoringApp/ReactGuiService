@@ -1,0 +1,9 @@
+.formQuestion {
+    background-color: rgba(4, 36, 52, 0.02);
+    min-height: 3vh;
+    max-width: 3vh;
+    border: 2px solid rgba(18, 49, 52, 0.85);
+    padding: 4px;
+    align-items: center;
+    margin: 4px;
+}
