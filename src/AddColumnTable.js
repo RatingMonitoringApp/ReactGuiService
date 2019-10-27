@@ -26,7 +26,7 @@ class AddColumnTable extends React.Component {
     }
     onSubmit(event) {
         event.preventDefault();
-        this.props.newColumns({key: this.state.newColumn, name: this.state.newColumn, editable: true});
+        this.props.newColumns({key: this.state.newColumn, name: this.state.newColumn, editable: true});//
         //TODO: return more complex json with other input parameters
         document.getElementById('newColumnForm').reset();
     }
@@ -54,18 +54,11 @@ class AddColumnTable extends React.Component {
                 }
                 <input type="submit" value="+"/>
                 <br/>
-                <p>
-
-                </p>
                 <br/>
             </form>
-
             </div>
 
         );
     }
-}/*
-{this.data.columns.length};
- {this.data.newColumns.length};
- {this.props.columns.length}*/
+}
 export default AddColumnTable;
