@@ -5,7 +5,7 @@ class AddColumnTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            newColumn: {},
+            assessmentDate: {},
             isAutomaticallyCompleted: false,
             isOnceInFortnight: false,
             endDate: ''
@@ -28,9 +28,10 @@ class AddColumnTable extends React.Component {
     onSubmit(event) { //event
         event.preventDefault();
         //callback function from parent
-        this.props.newColumnsCallback({key: this.state.newColumn, name: this.state.newColumn, editable: true});
+        //this.props.newColumnsCallback({key: this.state.assessmentDate, name: this.state.assessmentDate, editable: true});
+        this.props.addDateCallback(this.state.assessmentDate);
         //TODO: return more complex json with other input parameters
-        document.getElementById('newColumnForm').reset();
+        //document.getElementById('newColumnForm').reset();
     }
     onIsOnceInFortnightClick(){
         //const name = event.target.name;
@@ -73,20 +74,20 @@ class AddColumnTable extends React.Component {
             <div>
                 <form onSubmit={this.onSubmit} id="newColumnForm">
                     <br/>
-                    <label className="formQuestion" >Add column: <input name="newColumn"  type="text"
-                                                                        placeholder="Use format MM.DD.YYYY" onChange={this.onChangeInput}/></label>
+                    <label className="formQuestion" >Дата аттестации: <input name="assessmentDate"  type="text"
+                                                                        placeholder="ДД.ММ.ГГГГ" onChange={this.onChangeInput}/></label>
 
-                    <input type="button" name="isAutomaticallyCompleted" className="autoCompleteButton"
-                           ref={autoCompleteBtn => { this.autoCompleteBtn = autoCompleteBtn; }} onClick={this.onAutoCompleteClick} value="Auto Complete the table?" />
-                    <input type="button" name="isOnceInFortnight" className="autoCompleteButton" ref={onceInFortnightBtn => { this.onceInFortnightBtn = onceInFortnightBtn; }}
-                           onClick={this.onIsOnceInFortnightClick} value="Once in fortnight?" />
+                    {/*<input type="button" name="isAutomaticallyCompleted" className="autoCompleteButton"*/}
+                           {/*ref={autoCompleteBtn => { this.autoCompleteBtn = autoCompleteBtn; }} onClick={this.onAutoCompleteClick} value="Auto Complete the table?" />*/}
+                    {/*<input type="button" name="isOnceInFortnight" className="autoCompleteButton" ref={onceInFortnightBtn => { this.onceInFortnightBtn = onceInFortnightBtn; }}*/}
+                           {/*onClick={this.onIsOnceInFortnightClick} value="Once in fortnight?" />*/}
 
-                    {this.state.isAutomaticallyCompleted
-                        ?  <label className="formQuestion"> Autocomplete till:  <input name="endDate"  type="text"
-                                                                                       placeholder="Use format MM.DD.YYYY" onChange={this.onChangeInput}/> </label>
-                        : null
-                    }
-                    <input type="submit" value="+"/>
+                    {/*{this.state.isAutomaticallyCompleted*/}
+                        {/*?  <label className="formQuestion"> Autocomplete till:  <input name="endDate"  type="text"*/}
+                                                                                       {/*placeholder="Use format MM.DD.YYYY" onChange={this.onChangeInput}/> </label>*/}
+                        {/*: null*/}
+                    {/*}*/}
+                    <input type="submit" value="Подтвердить дату"/>
                     <br/>
                     <br/>
                 </form>
