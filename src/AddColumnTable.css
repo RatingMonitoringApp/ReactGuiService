@@ -1,9 +1,46 @@
 .formQuestion {
-    background-color: rgba(4, 36, 52, 0.02);
+    background-color: #4eb5f1;
     min-height: 3vh;
     max-width: 3vh;
-    border: 2px solid rgba(18, 49, 52, 0.85);
-    padding: 4px;
+    padding:0.3em 1.2em;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
     align-items: center;
     margin: 4px;
+}
+
+.autoCompleteButton {
+background-color: #4eb5f1;
+    display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2px;
+    box-sizing: border-box;
+    text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+text-align:center;
+transition: all 0.2s;
+}
+
+.autoCompleteButton:hover {
+    background-color:#4095c6;
+}
+
+.autoCompleteButtonPressed {
+    background-color: #4095c6;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
 }

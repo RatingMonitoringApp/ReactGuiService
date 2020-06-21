@@ -33,9 +33,11 @@ class DataGridTable extends React.Component {
             if (key != 'id' && key != 'nameSurname') {
                 if (!value.match(cellInputRestrictionRegex)) {
                     corruptedKey = key;
+                    this.togglePopup();
+                    //this.setState({showPopup: true});
 
-                    this.setState({showPopup: true});
-
+                } else {
+                    this.setState({showPopup: false});
                 }
             }
         }
