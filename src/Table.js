@@ -3,6 +3,8 @@ import DataGridTable from './DataGridTable';
 import AddColumnTable from './AddColumnTable';
 import MenuForProfessor from './Menu';
 import './MainPage.css';
+import fetch from 'isomorphic-fetch';
+
 class Table extends React.Component {
     //function(row, rowNumber, rows) { //element, its number, the iterable array itself
     constructor(props) {
@@ -38,6 +40,8 @@ class Table extends React.Component {
         this.exportToCsv = this.exportToCsv.bind(this);
         this.menuClickedCallback = this.menuClickedCallback.bind(this);
         this.parseCSV('');
+        this.sendRequests = this.sendRequests.bind(this);
+
         //this.fillProfessorSubjectGroupLists = this.fillProfessorSubjectGroupLists.bind(this);
         //this.onChangeInput = this.onChangeInput.bind(this); TODO: add custom event handlers
     };
@@ -115,7 +119,33 @@ class Table extends React.Component {
         //this.setState({columns: tempColumns, rows: tempRows});
         this.setState({assessmentDate: assessmentDate});
         console.log(assessmentDate);
+        this.sendRequests();
     };
+
+    sendRequests() {
+        console.log("sending");
+            // curl --request GET ""
+            // fetch('http://localhost:8085/students/1')
+            //     .then(res => {  console.log(res.json()); res.json(); })
+            //     .then((data) => {
+            //         console.log(data);
+            //         // this.setState({ contacts: data })
+            //     })
+            //     .catch(console.log)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: 'React POST Request Example' })
+        };
+        fetch('http://jsonplaceholder.typicode.com/users')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ contacts: data })
+            })
+            .catch(console.log)
+
+        console.log(this.state.contacts);
+        }
 
     rowChangedCallback(newRows) {
         var tempRows = newRows.slice();
